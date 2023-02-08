@@ -1,0 +1,27 @@
+.expense-detail {
+    padding: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.expense-detail-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr 12fr;
+    column-gap: 30px;
+    align-items: baseline;
+}
+.expense-detail-heading > h1{
+    color: #c1a481;
+    font-size: 40px;
+    width: auto;
+}
+.expense-edit-icon,
+.expense-delete-icon {
+    width: 40px;
+    height: 40px;
+}
+.expense-edit-icon:hover,
+.expense-delete-icon:hover {
+    transform: scale(1.03);
+    transition: 0.1s;
+}

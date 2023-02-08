@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <section class="expenses-list">
+        <div class="expenses-heading">
+            <h1>Expenses</h1>
+            <a href="{% url 'create-expense' %}" class="add-expense">+</a>
+        </div>
+      <div class="container">
+        {% for expense in expenses %}
+            <a href="{% url 'expense' expense.id %}" class="expense-detail-link">
+                <div class="expense">
+                    <div class="expense-header">
+                        <h3 class="expense-name">{{ expense.name }}</h3>
+                        <span class="expense-amount">
+                            {{ expense.amount }} {{ expense.currency }}
+                        </span>
+                    </div>
+                    <div class="expense-info">
+                        <span class="expense-description">
+                            <h4 class="small-heading">Comments</h4>
+                            {{ expense.comment }}
+                        </span>
+                        <span class="expense-category">
+                            <h4 class="small-heading">Category</h4>
+                            <span style="color: {{ expense.category.color }}">{{ expense.category }}</span>
+                        </span>
+                        <span class="expense-date">
+                            <h4 class="small-heading">Date</h4>
+                            <span>{{ expense.date }}</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+
+      </div>
+    </section>
+    <section class="expenses-charts">
+
+    </section>
+
+{% endblock content %}

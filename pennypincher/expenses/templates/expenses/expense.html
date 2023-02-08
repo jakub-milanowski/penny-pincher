@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="expense-detail">
+        <div>
+            <div class="expense-detail-heading">
+                <h1>{{ expense.name }}</h1>
+                <a href="{% url 'edit-expense' expense.id %}" class="edit-expense">
+                    <img class="expense-edit-icon" src="{% static 'img/edit-icon.svg' %}">
+                </a>
+                <a href="{% url 'delete-expense' expense.id %}" class="delete-expense">
+                    <img class="expense-delete-icon" src="{% static 'img/delete-icon.svg' %}">
+                </a>
+            </div>
+            {{expense.amount}} {{expense.currency}}
+            <br>
+            <span class="small-heading">
+                Category
+            </span>
+            <span class="expense-detail-category" style="color: {{ expense.category.color }}">
+                {{ expense.category }}
+            </span>
+            <br>
+            <span class="small-heading">
+                Comment
+            </span>
+            <span class="expense-detail-comment">
+                {{ expense.comment }}
+            </span>
+            <br>
+            <span class="small-heading">
+                Date
+            </span>
+            <span class="expense-detail-comment">
+                {{ expense.date }}
+            </span>
+        </div>
+    </section>
+
+{% endblock content %}
